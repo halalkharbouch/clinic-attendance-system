@@ -1,0 +1,24 @@
+<!-- attendance/templates/attendance/check_in.html -->
+{% extends 'attendance/base.html' %}
+
+{% block content %}
+<div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
+    <div class="md:flex">
+        <div class="p-8">
+            <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold">Staff Check-in</div>
+            <h2 class="block mt-1 text-lg leading-tight font-medium text-black">Welcome, {{ user.get_full_name }}</h2>
+            
+            {% if today_attendance %}
+                <p class="mt-4 text-gray-600">You've already checked in today at {{ today_attendance.check_in_time|time:"H:i" }}</p>
+            {% else %}
+                <form method="post" class="mt-6">
+                    {% csrf_token %}
+                    <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                        Check In
+                    </button>
+                </form>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

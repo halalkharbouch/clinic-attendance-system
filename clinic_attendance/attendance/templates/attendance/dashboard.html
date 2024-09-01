@@ -1,0 +1,23 @@
+<!-- attendance/templates/attendance/dashboard.html -->
+{% extends 'attendance/base.html' %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto">
+    <h2 class="text-2xl font-bold mb-4">Admin Dashboard</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <h3 class="text-xl font-semibold mb-2">Total Staff</h3>
+            <p class="text-3xl font-bold text-blue-600">{{ staff_count }}</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <h3 class="text-xl font-semibold mb-2">Today's Attendance</h3>
+            <p class="text-3xl font-bold text-green-600">{{ today_attendance }}</p>
+        </div>
+    </div>
+    <div class="mt-8">
+        <a href="{% url 'staff_list' %}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            Manage Staff
+        </a>
+    </div>
+</div>
+{% endblock %}

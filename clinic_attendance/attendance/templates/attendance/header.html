@@ -1,0 +1,21 @@
+<!-- attendance/templates/attendance/header.html -->
+<header class="bg-blue-500 text-white p-4">
+    <div class="container mx-auto flex justify-between items-center">
+        <h1 class="text-2xl font-bold">Clinic Attendance System</h1>
+        {% if user.is_authenticated %}
+            <nav class="flex items-center">
+                {% if user.is_superuser %}
+                    <a href="{% url 'dashboard' %}" class="mr-4">Dashboard</a>
+                    <a href="{% url 'staff_list' %}" class="mr-4">Staff List</a>
+                {% else %}
+                    <a href="{% url 'check_in' %}" class="mr-4">Check In</a>
+                    <a href="{% url 'change_password' %}" class="mr-4">Change Password</a>
+                {% endif %}
+                <form method="post" action="{% url 'logout' %}" class="inline">
+                    {% csrf_token %}
+                    <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Logout</button>
+                </form>
+            </nav>
+        {% endif %}
+    </div>
+</header>
