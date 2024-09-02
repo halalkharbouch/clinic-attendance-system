@@ -83,11 +83,17 @@ WSGI_APPLICATION = 'clinic_attendance.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'verceldb',  # Name of your database
+        'USER': 'default',  # Username
+        'PASSWORD': 'w9WOaHzjev0C',  # Password
+        'HOST': 'ep-withered-darkness-a4qgh9qp-pooler.us-east-1.aws.neon.tech',  # Hostname
+        'PORT': '5432',  # Port number
+        'OPTIONS': {
+            'sslmode': 'require',  # Ensure SSL connection is required
+        },
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
