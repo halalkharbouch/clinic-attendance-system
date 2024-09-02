@@ -3,11 +3,11 @@
 
 {% block content %}
 <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
-    <div class="md:flex">
+    <div class="mx-auto">
         <div class="p-8">
             <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold">Clinic Attendance System</div>
             <h2 class="block mt-1 text-lg leading-tight font-medium text-black">Login</h2>
-            <form method="post" class="mt-6">
+            <form method="post" class="mt-6 w-full">
                 {% csrf_token %}
                 <div class="mb-4">
                     <label for="username" class="block text-gray-700 text-sm font-bold mb-2">Username</label>
